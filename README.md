@@ -1,4 +1,8 @@
 # industrial-defect-inspector-vit
+
+I utilized the MVTec AD dataset, typically used for unsupervised anomaly detection, and restructured it into a binary classification task. This was done to evaluate the real-time performance of the FastViT architecture in a 'data-scarce' industrial environment where defective samples are limited.
+
+
 End-to-end industrial anomaly detection system using FastViT, optimized for C++ edge deployment.
 The Project Objective
 You are building an automated system that looks at a live stream of industrial parts (like bottles or electronics) and identifies if they are "Good" or "Defective" in real-time.
