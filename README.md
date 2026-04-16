@@ -133,7 +133,7 @@ predict_image(model, "path/to/image.png", train_dataset.classes, device)
 save_model(model, "fastvit_bottle_inspector.pth")
 ```
 
-Full walkthrough: [`notebooks/defect_analysis.ipynb`](notebooks/defect_analysis.ipynb) — open in Colab.
+Full walkthrough: [`notebooks/defect_analysis.ipynb`](Notebooks/Industrial_Defect_Inspector_pipeline.ipynb) — open in Colab.
 
 ---
 
