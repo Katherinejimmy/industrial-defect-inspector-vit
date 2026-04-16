@@ -12,7 +12,7 @@ A system that watches a live stream of industrial parts and flags them as **Good
 
 ## The idea
 
-MVTec AD is normally used for unsupervised anomaly detection. I restructured it into a binary classification task instead, partly to see how FastViT handles a data-scarce setup (defective samples are always the minority in real factories), and partly because the end goal was never just accuracy — it was getting something fast enough to run on embedded hardware.
+MVTec AD is normally used for unsupervised anomaly detection. I restructured it into a binary classification task instead, partly to see how FastViT handles a data-scarce setup (defective samples are always the minority in real factories)
 
 The four-phase plan below is what I mapped out before starting. Phase 1 is done.
 
@@ -24,7 +24,7 @@ The four-phase plan below is what I mapped out before starting. Phase 1 is done.
 
 The first problem was the dataset itself. MVTec's train split only contains `good` images — there are no defects in it at all. So before any training could happen, I had to pull the damaged samples out of the test folder (broken large, broken small, contamination, etc.), pool them with the good images, and rebuild the whole thing into a proper `train/val/test` structure at 70/15/15.
 
-That left a second problem: 209 good images vs 63 damaged. To stop the model from just predicting "good" for everything, I used weighted CrossEntropyLoss and gave the damaged class 3.6× the weight of good — calculated as `total_samples / (num_classes × samples_in_class)`. That's it. No oversampling, no augmentation, just the loss function doing the work.
+That left a second problem: 209 good images vs 63 damaged. To stop the model from just predicting "good" for everything, I used weighted CrossEntropyLoss and gave the damaged class 3.6× the weight of good — calculated as `total_samples / (num_classes × samples_in_class)`.
 
 - Model: FastViT-T8 via `timm`, fine-tuned from ImageNet weights
 - Optimiser: AdamW (lr=1e-4), 10 epochs on Google Colab
@@ -151,4 +151,4 @@ Full walkthrough: [`notebooks/defect_analysis.ipynb`](notebooks/defect_analysis.
 
 ## License
 
-MIT. The MVTec AD dataset has its own [licence](https://www.mvtec.com/company/research/datasets/mvtec-ad) — worth reading before any commercial use.
+MIT. The MVTec AD dataset has its own [licence](https://www.mvtec.com/company/research/datasets/mvtec-ad) 
