@@ -6,7 +6,7 @@
 ![Status](https://img.shields.io/badge/Status-Phase%201%20Complete-brightgreen?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
-A system that watches a live stream of industrial parts and flags them as **Good** or **Defective** in real time. The end goal is running inference in C++ on edge hardware — no Python, no heavy server.
+A system that watches a live stream of industrial parts and flags them as **Good** or **Defective** in real time. The end goal is running inference in C++ on edge hardware.
 
 ---
 
