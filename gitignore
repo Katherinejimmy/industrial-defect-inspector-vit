@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data — never commit raw datasets or processed splits
+data/
+mvtec-ad/
+industrial_data/
+*.png
+*.jpg
+*.jpeg
+
+# Model weights — often too large for git (use git-lfs or cloud storage)
+*.pth
+*.pt
+*.ckpt
+*.bin
+
+# Google Drive / Colab mount artefacts
+/content/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs & outputs
+*.log
+runs/
+outputs/
