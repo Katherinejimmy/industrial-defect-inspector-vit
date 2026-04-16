@@ -15,11 +15,11 @@ venv/
 env/
 ENV/
 
-# Jupyter / IPython
+# Jupyter 
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 
-# Data — never commit raw datasets or processed splits
+# Data 
 data/
 mvtec-ad/
 industrial_data/
@@ -27,13 +27,13 @@ industrial_data/
 *.jpg
 *.jpeg
 
-# Model weights — often too large for git (use git-lfs or cloud storage)
+# Model weights 
 *.pth
 *.pt
 *.ckpt
 *.bin
 
-# Google Drive / Colab mount artefacts
+# Google Drive 
 /content/
 
 # OS
