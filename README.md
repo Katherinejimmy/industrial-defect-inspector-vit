@@ -22,9 +22,9 @@ The four-phase plan below is what I mapped out before starting. Phase 1 is done.
 
 **Phase 1 — Train the model (done)**
 
-The first problem was the dataset itself. MVTec's train split only contains `good` images — there are no defects in it at all. So before any training could happen, I had to pull the damaged samples out of the test folder (broken large, broken small, contamination, etc.), pool them with the good images, and rebuild the whole thing into a proper `train/val/test` structure at 70/15/15.
+The first problem was the dataset itself. MVTec's train split only contains `good` images, there are no defects in it at all. So before any training could happen, I had to pull the damaged samples out of the test folder (broken large, broken small, contamination, etc.), pool them with the good images, and rebuild the whole thing into a proper `train/val/test` structure at 70/15/15.
 
-That left a second problem: 209 good images vs 63 damaged. To stop the model from just predicting "good" for everything, I used weighted CrossEntropyLoss and gave the damaged class 3.6× the weight of good — calculated as `total_samples / (num_classes × samples_in_class)`.
+That left a second problem: 209 good images vs 63 damaged. To stop the model from just predicting "good" for everything, I used weighted CrossEntropyLoss and gave the damaged class 3.6× the weight of good, calculated as `total_samples / (num_classes × samples_in_class)`.
 
 - Model: FastViT-T8 via `timm`, fine-tuned from ImageNet weights
 - Optimiser: AdamW (lr=1e-4), 10 epochs on Google Colab
@@ -37,7 +37,7 @@ That left a second problem: 209 good images vs 63 damaged. To stop the model fro
 
 **Phase 3 — Docker**
 - Wrap the whole pipeline in a container
-- The point: it should run identically on any machine, no environment excuses — this is what actually matters in a production setting
+- The point: it should run identically on any machine, no environment excuses, this is what actually matters in a production setting
 
 **Phase 4 — C++ edge deployment**
 - Export the trained model to ONNX
